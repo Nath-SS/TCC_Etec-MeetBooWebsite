@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(../img/cadastro-bg.jpg);
+}
+
+.content{
+    background-color: #fff;
+    border-radius: 15px; 
+    width: 80%;
+    height: 60%;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.content::before{
+    content: "";
+    position: absolute;
+    background-image: linear-gradient(#262da2, #4731b1, #6234bf, #7a37ca);
+    width: 40%;
+    height: 100%;
+    opacity: 0.8;
+
+}
+
+.titulo{
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.titulo-welcome{
+    color: #fff;
+}
+
+.titulo-create{
+    color: #4731b1;
+
+}
+
+.description{
+    font-size: 14px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 30px;
+}
+
+.btn{
+    border-radius: 15px;
+    text-transform: uppercase;
+    font-size: 10px;
+    padding: 10px 40px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #fff;
+    width: 150px;
+    align-self: center;
+    border: none;
+}
+
+.btn-welcome{
+    background: transparent;
+    border: 1px solid #fff;
+    transition: 1s;
+}
+
+.btn-create{
+    background-image: linear-gradient( #4731b1, #6234bf, #7a37ca);
+    border: 1px solid #4731b1;
+    transition: 1.5s;
+
+}
+
+.btn-welcome:hover{
+    border-color: #4731b1 ;
+    background-color: #fff;
+    color: #4731b1;
+}
+
+.btn-create:hover{
+    background: transparent;
+    color: #4731b1;
+}
+
+.first-content{
+    display: flex;
+}
+
+.first-column{
+    text-align: center;
+    flex: 1 0 auto;
+    z-index: 1;
+
+}
+
+.second-column{
+    flex: 2 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lista-icones-sociais{
+    display: flex;
+    list-style-type: none;
+}
+
+.icones-sociais{
+    border: 1px solid #4731b1;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    line-height: 33px;
+    text-align: center;
+}
+
+.icones-sociais:not(:first-child){
+    margin-left: 10px;
+}
+
+.icones-sociais a{
+    color: #4731b1;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+}
+
+.formulario input{
+    height: 45px;
+    border: 1px solid #4731b1;
+    border-radius: 10px;
+    margin: 8px;
+    padding-left: 5px;
+}
+
+.second-content{
+    position: absolute;
+    display: none;
+}
