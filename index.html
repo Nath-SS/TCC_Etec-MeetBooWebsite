@@ -12,52 +12,83 @@
     <div class="container"><!-- Inicio Container -->
         <div class="content first-content"><!-- Inicio Cadastro -->
             <div class="first-column"><!-- Inicio Coluna1 -->
-                <h2 class="titulo titulo-welcome">Welcome Back!</h2> 
+                <h2 class="titulo titulo-branco">Welcome Back!</h2> 
                 <p class="description">Faça login agora e continue suas atividades</p>
-                <button class="btn btn-welcome">Sign in</button>
+                <button id="signIn" class="btn btn-branco">Sign in</button>
             </div><!-- Fim Coluna1 -->
             <div class="second-column"><!-- Inicio Coluna2 -->
-                <h2 class="titulo titulo-create">Create Account</h2>
+                <h2 class="titulo titulo-colorido">Create Account</h2>
                 <div class="redes-sociais">
                     <ul class="lista-icones-sociais">
-                        <li class="icones-sociais"><a href="#"><i class="fab fa-facebook"></i></a></li>
-                        <li class="icones-sociais"><a href="#"><i class="fab fa-google"></i></a></li>
+                        <a class="link-social" href="#">
+                            <li class="icones-sociais">
+                                <i class="fab fa-facebook-f"></i>
+                            </li>
+                        </a>
+                        <a class="link-social" href="#">
+                            <li class="icones-sociais">
+                                <i class="fab fa-google"></i>
+                            </li>
+                        </a>
                     </ul>
                 </div>
-                <p class="description">Ou use o seu email para se registrar.</p>
+                <p class="description description-colorido">Ou use o seu email para se registrar.</p>
                 <form action="" class="formulario">
-                    <input type="text" name="" id="" placeholder="Nome">
-                    <input type="email" name="" id="" placeholder="Email">
-                    <input type="password" name="" id="" placeholder="Senha">
-                    <button class="btn btn-create">Sign Up</button>
+                    <label class="label-input" for="">
+                        <i class="far fa-user icon-modify"></i>
+                        <input type="text" name="" id="" placeholder="Nome">
+                    </label>
+                    <label class="label-input" for="">
+                        <i class="fas fa-envelope icon-modify"></i>
+                        <input type="email" name="" id="" placeholder="Email">
+                    </label>
+                    <label class="label-input" for="">
+                        <i class="fas fa-lock icon-modify"></i>
+                        <input type="password" name="" id="" placeholder="Senha">
+                    </label>
+                    <button class="btn btn-colorido">Sign Up</button>
                 </form>
             </div><!-- Fim Coluna2 -->
         </div><!-- Fim cadastro -->
         <div class="content second-content"><!-- Inicio Login -->
             <div class="first-column"><!-- Inicio Coluna1 -->
-                <h2 class="titulo">Hello, Bookcrazy!</h2> 
+                <h2 class="titulo titulo-branco">Hello, Bookrazy!</h2> 
                 <p class="description">Cadastre-se agora e encontre outros amantes de livros</p>
-                <button class="btn">Sign Up</button>
+                <button id="signUp" class="btn btn-branco">Sign Up</button>
             </div><!-- Fim Coluna1 -->
             <div class="second-column"><!-- Inicio Coluna2 -->
-                <h2 class="titulo">Mostre-nos sua estante</h2>
+                <h2 class="titulo titulo-colorido">Mostre-nos sua estante</h2>
                 <div class="redes-sociais">
-                    <ul class="icones-sociais">
-                        <li><a href="#">facebook</a></li>
-                        <li><a href="#">gmail</a></li>
-                        <li><a href="#">skoob</a></li>
+                    <ul class="lista-icones-sociais">
+                        <a class="link-social" href="#">
+                            <li class="icones-sociais">
+                                <i class="fab fa-facebook-f"></i>
+                            </li>
+                        </a>
+                        <a class="link-social" href="#">
+                            <li class="icones-sociais">
+                                <i class="fab fa-google"></i>
+                            </li>
+                        </a>
                     </ul>
                 </div>
-                <p class="description">Ou use o seu email.</p>
+                <p class="description description-colorido">Ou use o seu email.</p>
                 <form action="" class="formulario">
-                    <input type="email" name="" id="" placeholder="Email">
-                    <input type="password" name="" id="" placeholder="Senha">
-                    <a href="#">Esqueceu sua senha?</a>
-                    <button class="btn">Sign In</button>
+                    <label class="label-input" for="">
+                        <i class="fas fa-envelope icon-modify"></i>
+                        <input type="email" name="" id="" placeholder="Email">
+                    </label>
+                    <label class="label-input" for="">
+                        <i class="fas fa-lock icon-modify"></i>
+                        <input type="password" name="" id="" placeholder="Senha">
+                    </label>
+                    <a class="password" href="#">Esqueceu sua senha?</a>
+                    <button class="btn btn-colorido">Sign In</button>
                 </form>
             </div><!-- Fim Coluna2 -->
         </div><!-- Fim Login -->
     </div><!-- Fim container -->
-    
+
+    <script src="js/loginCadastro.js"></script>
 </body>
 </html>
