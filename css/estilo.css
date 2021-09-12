@@ -106,7 +106,6 @@
     text-align: center;
     width: 40%;
     z-index: 1;
-
 }
 
 .second-column{
@@ -221,21 +220,20 @@
 
 .sign-up-js .second-content .first-column,
 .sign-up-js .second-content .second-column{
-    z-index: -1;
+    z-index: -3;
 }
 
 .sign-up-js .first-content .second-column{
-    z-index: 1;
+    z-index: -1;
 }
 
 .sign-up-js .first-content .first-column{
-    z-index: 3;
+    z-index: 1;
 }
 
 .sign-up-js .content::before{
     animation: slideout 2s;
-
-    z-index: 2;
+    z-index: 0;
 }
 
 /* Animação css */
