@@ -33,18 +33,18 @@
                     </ul>
                 </div>
                 <p class="description description-colorido">Ou use o seu email para se registrar.</p>
-                <form action="" class="formulario">
+                <form nome="cadastroForm" action="cadastrar-usuario.php" class="formulario" method="post">
                     <label class="label-input" for="">
                         <i class="far fa-user icon-modify"></i>
-                        <input type="text" name="" id="" placeholder="Nome">
+                        <input type="text" name="txtCName" placeholder="Nome">
                     </label>
                     <label class="label-input" for="">
                         <i class="fas fa-envelope icon-modify"></i>
-                        <input type="email" name="" id="" placeholder="Email">
+                        <input type="email" name="txtCEmail" placeholder="Email">
                     </label>
                     <label class="label-input" for="">
                         <i class="fas fa-lock icon-modify"></i>
-                        <input type="password" name="" id="" placeholder="Senha">
+                        <input type="password" name="txtCSenha" placeholder="Senha">
                     </label>
                     <button class="btn btn-colorido">Sign Up</button>
                 </form>
@@ -73,14 +73,14 @@
                     </ul>
                 </div>
                 <p class="description description-colorido">Ou use o seu email.</p>
-                <form action="" class="formulario">
+                <form action="login.php" class="formulario" method="post">
                     <label class="label-input" for="">
                         <i class="fas fa-envelope icon-modify"></i>
-                        <input type="email" name="" id="" placeholder="Email">
+                        <input type="email" name="txtLEmail" id="loginEmail" placeholder="Email">
                     </label>
                     <label class="label-input" for="">
                         <i class="fas fa-lock icon-modify"></i>
-                        <input type="password" name="" id="" placeholder="Senha">
+                        <input type="password" name="txtLSenha" id="loginSenha" placeholder="Senha">
                     </label>
                     <a class="password" href="#">Esqueceu sua senha?</a>
                     <button class="btn btn-colorido">Sign In</button>
