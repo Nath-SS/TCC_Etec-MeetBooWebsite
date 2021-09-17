@@ -45,17 +45,41 @@ class Usuario{
 
     public function cadastrar($usuario){
         $conexao = Conexao::pegarConexao();
+        
+        //validação
 
-        $stmt = $conexao->prepare("INSERT INTO tbUsuario (nomeUsuario, emailUsuario, senhaUsuario)
-                                    VALUES (?, ?, ?) ");
+        $nomeUsuario = $usuario->getNomeUsuario();
+        $emailUsuario = $usuario->getEmailUsuario();
 
-        $stmt->bindParam(1, $usuario->getNomeUsuario());
-        $stmt->bindParam(2, $usuario->getEmailUsuario());
-        $stmt->bindParam(3, $usuario->getSenhaUsuario());
-        $stmt->execute();
 
-        return 'Cadastro concluido com sucesso';
+        $stmtL = $conexao->prepare("SELECT * FROM tbUsuario WHERE nomeUsuario = ?");
+        $stmtE = $conexao->prepare("SELECT * FROM tbUsuario WHERE emailUsuario = ? ");
 
+        $stmtL->bindParam(1, $nomeUsuario);
+        $stmtL->execute();
+        $stmtE->bindParam(1, $emailUsuario);
+        $stmtE->execute();
+
+
+
+        if($stmtL->rowCount() > 0 || $stmtE->rowCount() > 0){            
+            $_SESSION['TryAgain'] = "<script type='text/javascript'>alert('Usuario ou Email ja existentes, por favor utilize um diferente.');</script>" ;
+
+        }else{
+
+        
+        //cadastro
+            $stmt = $conexao->prepare("INSERT INTO tbUsuario (nomeUsuario, emailUsuario, senhaUsuario)
+                                        VALUES (?, ?, ?) ");
+
+            $stmt->bindParam(1, $usuario->getNomeUsuario());
+            $stmt->bindParam(2, $usuario->getEmailUsuario());
+            $stmt->bindParam(3, $usuario->getSenhaUsuario());
+            $stmt->execute();
+
+            $_SESSION['Sucess'] = "<script type='text/javascript'>alert('Cadastro realizado com sucesso!');</script>";
+
+        }        
     }
 
     public function logar($login, $senha){
@@ -77,25 +101,5 @@ class Usuario{
         }else{
             return false;
         }
-
     }
-
-
-
-
-
-        /* cadastro bagunçado
-        $queryInsert = "INSERT INTO tbUsuario (nomeUsuario, emailUsuario, senhaUsuario)
-                            VALUES (' ". $usuario->getNomeUsuario(). " ',
-                                    ' ". $usuario->getEmailUsuario() ." ',
-                                    ' ". $usuario->getSenhaUsuario() ." ')                   
-         
-                                    ";
-        //return $queryInsert;
-        $conexao->exec($queryInsert);
-        return 'Cadastro realizado com sucesso';
-        */
-        
-    }
-
-?>
+}?>

@@ -9,6 +9,19 @@
     <title>MeetBoo</title>
 </head>
 <body>
+    <?php
+        session_start();
+
+
+        if(isset($_SESSION['TryAgain'])){
+            echo($_SESSION['TryAgain']);
+            session_destroy();
+
+        }elseif(isset($_SESSION['Sucess'])){
+            echo($_SESSION['Sucess']);
+            session_destroy();
+        }
+    ?>
     <div class="container"><!-- Inicio Container -->
         <div class="content first-content"><!-- Inicio Cadastro -->
             <div class="first-column"><!-- Inicio Coluna1 -->
