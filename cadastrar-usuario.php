@@ -2,21 +2,28 @@
 
     require_once 'global.php';
 
-    try{
-        header("Location: index.php");
-        $usuario = new Usuario();
-        $usuario->setNomeUsuario($_POST['txtCName']);
-        $usuario->setEmailUsuario($_POST['txtCEmail']);
-        $usuario->setSenhaUsuario($_POST['txtCSenha']);
-        echo $usuario->cadastrar($usuario);
+    $senha = $_POST['txtSenha'];
+    $confirmaSenha = $_POST['txtConfirmSenha'];
 
-    }
-    catch(Exception $e){
-        echo '<pre>';
-            print_r($e);
-        echo '<pre>';
-        echo $e->getMessage();
+    if($senha != $confirmaSenha){
+        $_SESSION['Senha'] = "<script type='text/javascript'>alert('Confirme sua senha');</script>";
+        header("Location: cadastro.php");
+    }else{
+        try{
+            $usuario = new Usuario();
+            $usuario->setNomeUsuario($_POST['txtName']);
+            $usuario->setEmailUsuario($_POST['txtEmail']);
+            $usuario->setSenhaUsuario($_POST['txtSenha']);
+            echo $usuario->cadastrar($usuario);
 
+        }
+        catch(Exception $e){
+            echo '<pre>';
+                print_r($e);
+            echo '<pre>';
+            echo $e->getMessage();
+
+        }
     }
 
 ?>

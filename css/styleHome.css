@@ -1,0 +1,155 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Century Gothic", sans-serif;
+    scroll-behavior: smooth;
+    background: #fafafa;
+}
+
+header {
+    width: 100%;
+    height: 120px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 0 20px #E1E1E1;
+    padding-left: 40px;
+    padding-right: 40px;
+    background: #f7f7f7;
+    z-index: 999;
+}
+
+header form input {
+    width: 200px;
+    height: 25px;
+    border-radius: 5px;
+    border: 1.5px solid #333;
+}
+
+header ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+    width: 220px;
+}
+
+header ul img {
+    width: 30px;
+    height: 30px;
+}
+
+.logo img {
+    width: 180px;
+    height: 110px;
+}
+
+.feed {
+    width: 100%;
+    min-height: 1800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 190px;
+    padding-bottom: 100px;
+}
+
+.feed .container {
+    box-shadow: 0 0 20px #E1E1E1;
+    width: 900px;
+    height: 580px;
+    background: #ffffff;
+}
+
+.container .usuario {
+    display: flex;
+    height: 40%;
+}
+
+.usuario .img-container {
+    width: 140px;
+    height: 140px;
+    position: relative;
+    top: 40px;
+    left: 60px;
+}
+
+.usuario .img-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+} 
+
+.usuario ul {
+    position: relative;
+    top: 20px;
+    left: 60px;
+    list-style: none;
+    width: 240px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.usuario ul h1 {
+    font-weight: 600;
+    font-size: 26px
+}
+
+.usuario ul h2 {
+    font-weight: 500;
+    font-size: 20px
+}
+
+.post h1 {
+    width: 100%;
+    text-align: center;
+
+}
+
+.post .info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.info .img-container {
+    width: 160px;
+    height: 210px;
+    position: relative;
+}
+.info .img-container img {
+    width: 100%;
+    height: 100%;
+}
+
+.info .text-container {
+    width: 55%;
+}
+
+.info .text-container p {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.post ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 68px;
+    left: 760px;
+    bottom: 20px;
+}
+
+.post ul img {
+    width: 26px;
+    height: 26px;
+}

@@ -63,7 +63,8 @@ class Usuario{
 
 
         if($stmtL->rowCount() > 0 || $stmtE->rowCount() > 0){            
-            $_SESSION['TryAgain'] = "<script type='text/javascript'>alert('Usuario ou Email ja existentes, por favor utilize um diferente.');</script>" ;
+            $_SESSION['TryAgain'] = "<script type='text/javascript'>alert('Usuario ou Email ja existentes, por favor utilize um diferente.');</script>";
+            header("Location: cadastro.php");
 
         }else{
 
@@ -78,6 +79,7 @@ class Usuario{
             $stmt->execute();
 
             $_SESSION['Sucess'] = "<script type='text/javascript'>alert('Cadastro realizado com sucesso!');</script>";
+            header("Location: index.php");
 
         }        
     }
@@ -95,7 +97,7 @@ class Usuario{
         if($stmt->rowCount() > 0){
             $dado = $stmt->fetch();
 
-            $_SESSION['User'] = $dado['idUsuario'];
+            $_SESSION['User'] = $dado['nomeUsuario'];
 
             return true;
         }else{

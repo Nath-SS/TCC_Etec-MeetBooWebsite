@@ -5,33 +5,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/styleIndex.css">
-    <title>Login</title>
+    <link rel="stylesheet" href="./css/styleCadastro.css">
+
+
+    <script src="./js/valida-senha.js"></script>
+
+    <title>Cadastro</title>
 </head>
 
 <body>
+
     <?php
         session_start();
 
-        if(isset($_SESSION['Sucess'])){
-            echo($_SESSION['Sucess']);
+        if(isset($_SESSION['TryAgain'])){
+            echo($_SESSION['TryAgain']);
             session_destroy();
 
+        }elseif(isset($_SESSION['Senha'])){
+            echo($_SESSION['Senha']);
+            session_destroy();
         }
     ?>
     <section class="principal">
-        <div class="imgContainer">
-            <img src="./img/asdasd.jfif" alt="pinto">
-        </div>
         <div class="container">
             <img src="./img/logo.jfif" alt="pinto">
-            <form method="post" action="login.php">
+            <form method="post" action="cadastrar-usuario.php">
+                <input type="text" name="txtName" placeholder="Nome de usuario">
                 <input type="email" name="txtEmail" placeholder="Email">
-                <input type="password" name="txtSenha" placeholder="Senha">
-                <a href="">Esqueci minha senha.</a>
-                <button class="btn-login">Entrar</button>
+                <input type="password" id="password" name="txtSenha" onkeyup='check();' placeholder="Senha">
+                <input type="password" id="confirm_password" name="txtConfirmSenha" onkeyup='check();' placeholder="Confirmar senha">
+                <span id='message'></span>
+                <button class="btn-cadastro">Cadastre-se</button>
             </form>
-            <p class="paragra">Não possui uma conta? <a href="cadastro.php">Cadastre-se</a></p>
+            <p class="paragra">Ao se cadastrar, você concordara com</p>
+            <p>nossos <a href="">Termos</a> e <a href="">Condições</a></p>
         </div>
         <footer>
             <ul class="generos">
