@@ -4,7 +4,7 @@ body {
     box-sizing: border-box;
     font-family: "Century Gothic", sans-serif;
     scroll-behavior: smooth;
-    background: #f7f7f7;
+    background: #ffffff;
 }
 
 a
@@ -38,13 +38,14 @@ a
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #f7f7f7;
-    border: 1px solid #444;
+    background: #ffffff;
+    box-shadow: 0 0 20px #E1E1E1;
+
 }
 
 .container img
 {
-    height: 160px;
+    height: 70px;
     width: 280px;
 }
 
@@ -62,9 +63,9 @@ form input
     height: 22px;
     padding: 8px;
     border: none;
-    margin-top: 10px;
-    border: 1px solid #444;
+    margin-top: 20px;
     border-radius: 4px;
+    box-shadow: 0 0 20px #E1E1E1;
     outline: none;
     font-family: "Century Gothic", sans-serif;
 }
@@ -81,6 +82,7 @@ form input
     border: none;
     border-radius: 5px;
     background: #55309b;
+    box-shadow: 0 0 20px #E1E1E1;
     color: white;
     font-size: 18px;
     font-weight: 600;
