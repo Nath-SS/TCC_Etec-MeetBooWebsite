@@ -40,8 +40,9 @@ a
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #f7f7f7;
-    border: 1px solid #444;
+    background: #ffffff;
+    box-shadow: 0 0 20px #E1E1E1;
+
 }
 
 .container img
@@ -72,7 +73,7 @@ form input
     padding: 8px;
     border: none;
     margin-top: 10px;
-    border: 1px solid #444;
+    box-shadow: 0 0 20px #E1E1E1;
     border-radius: 4px;
     outline: none;
     font-family: "Century Gothic", sans-serif;
