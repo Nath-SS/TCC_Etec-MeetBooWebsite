@@ -116,13 +116,16 @@ header ul img {
 }
 
 .usuario ul h2 {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 20px
 }
 
 .post h1 {
     width: 100%;
-    text-align: center;
+    margin-top: -5px;
+    text-align: left;
+    margin-left: 63px;
+   
 
 }
 
@@ -133,8 +136,8 @@ header ul img {
 }
 
 .info .img-container {
-    width: 160px;
-    height: 210px;
+    width: 150px;
+    height: 220px;
     position: relative;
 }
 .info .img-container img {
