@@ -69,7 +69,8 @@ header ul img {
 
 .containerTwo {
     float: right;
-    position: fixed;
+    position: absolute;
+    box-shadow: 0px 0 40px #000000;
 }
 
 .feed .container {
