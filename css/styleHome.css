@@ -30,8 +30,8 @@ header {
 header form input {
     width: 200px;
     height: 25px;
-    border-radius: 5px;
-    border: 1.5px solid #333;
+    border-radius: 3px;
+    border: 0.1px solid #a0a0a0;
 }
 
 header ul {
@@ -53,6 +53,11 @@ header ul img {
     width: 180px;
     height: 50px;
     
+}
+
+.explore {
+    background-color: #f7f7f7;
+    padding-left: 9px;
 }
 
 .feed {
@@ -116,13 +121,16 @@ header ul img {
 }
 
 .usuario ul h2 {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 20px
 }
 
 .post h1 {
     width: 100%;
-    text-align: center;
+    margin-top: -5px;
+    text-align: left;
+    margin-left: 63px;
+   
 
 }
 
@@ -133,8 +141,8 @@ header ul img {
 }
 
 .info .img-container {
-    width: 160px;
-    height: 210px;
+    width: 150px;
+    height: 220px;
     position: relative;
 }
 .info .img-container img {
