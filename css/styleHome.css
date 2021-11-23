@@ -7,6 +7,7 @@ body {
     background: #fafafa;
     overflow-x: hidden;
     overflow-y: scroll;
+    
 }
 
 
@@ -44,6 +45,8 @@ header ul {
 header ul img {
     width: 30px;
     height: 30px;
+    padding: 12px;
+
 }
 
 .logo img {
@@ -59,9 +62,14 @@ header ul img {
     flex-direction: column;
     justify-content: space-between;
     align-items: left;
-    margin-left: 5%;
+    margin-left: 10%;
     padding-top: 200px;
     padding-bottom: 100px;
+}
+
+.containerTwo {
+    float: right;
+    position: fixed;
 }
 
 .feed .container {
