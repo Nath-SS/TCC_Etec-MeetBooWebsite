@@ -7,6 +7,8 @@
         $post = new Post();
         $post->setDescPost($_POST['txtReview']);
         $post->setTituloPost($_POST['txtTitulo']);
+        $post->setNotaPost($_POST['txtNota']);
+        $post->setGeneroPost($_POST['txtGenero']);
         
         //recebendo imagem
 
