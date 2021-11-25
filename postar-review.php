@@ -2,28 +2,36 @@
 
     require_once 'global.php';
 
-    
+    $review = $_POST['txtReview'];
+    $titulo = $_POST['txtTitulo'];
+    $genero = $_POST['txtGenero'];
+    $imagem = $_FILES['ftFile'];
+    $nomeImagem = $imagem['name'];
+    $arquivo = $imagem['tmp_name'];
+
+
     try{
-        $post = new Post();
-        $post->setDescPost($_POST['txtReview']);
-        $post->setTituloPost($_POST['txtTitulo']);
-        $post->setNotaPost($_POST['txtNota']);
-        $post->setGeneroPost($_POST['txtGenero']);
-        
+            
+        $Postagem = new Postagem();
+
+
+        $Postagem->setDescPost($review);
+        $Postagem->setTituloPost($titulo);
+        $Postagem->setGeneroPost($genero);
+            
         //recebendo imagem
 
-        $post->setNomeImagem($_FILES['ftFile']['name']);
-        $arquivo = $_FILES['ftFile']['tmp_name'];
+        $Postagem->setNomeImagem($nomeImagem);
 
-        $post->setCaminhoImagem('img/');
+        $Postagem->setCaminhoImagem('img/');
 
         move_uploaded_file($arquivo,
-                            $post->getCaminhoImagem() . $post->getNomeImagem());
+                            $Postagem->getCaminhoImagem() . $Postagem->getNomeImagem());
 
-        $post->setCaminhoImagem($post->getCaminhoImagem() . $post->getNomeImagem());
+        $Postagem->setCaminhoImagem($Postagem->getCaminhoImagem() . $Postagem->getNomeImagem());
 
 
-        echo $post->postar($post);
+        echo $Postagem->postar($Postagem);
 
     }
     catch(Exception $e){
@@ -33,5 +41,6 @@
         echo $e->getMessage();
 
     }
+    
 
 ?>

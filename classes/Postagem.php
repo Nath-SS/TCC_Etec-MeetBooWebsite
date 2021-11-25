@@ -1,12 +1,11 @@
 <?php
 
 
-class Post{
+class Postagem{
 
     private $idUsuario;
     private $descPost;
     private $tituloPost;
-    private $notaPost;
     private $generoPost;
     private $caminhoImagem;
     private $nomeImagem;
@@ -21,10 +20,6 @@ class Post{
 
     public function getTituloPost(){
         return $this->tituloPost;
-    }
-
-    public function getNotaPost(){
-        return $this->notaPost;
     }
 
     public function getGeneroPost(){
@@ -52,10 +47,6 @@ class Post{
         $this->tituloPost = $titulo;
     }
 
-    public function setNotaPost($nota){
-        $this->notaPost = $nota;
-    }
-
     public function setGeneroPost($genero){
         $this->generoPost = $genero;
     }
@@ -68,39 +59,47 @@ class Post{
         $this->nomeImagem = $nome;
     }
 
-    public function postar($Post){
+    public function postar($postagem){
+
+        /*$post = new Post();
+        $teste = $post->getDescPost();
+        echo($teste);*/
         $conexao = Conexao::pegarConexao();
+
 
         //Pegar nome
 
-        $stmtU = $conexao->prepare("SELECT idUsuario FROM tbUsuario WHERE nomeUsuario = ?")
+        $stmtU = $conexao->query("SELECT idUsuario FROM tbUsuario WHERE nomeUsuario = '" . $_SESSION['User'] . "'");
+        $resultado = $stmtU->fetch();
+        $postagem->setIdUsuario($resultado['idUsuario']);
 
-        $stmtU->bindValue(1, $_SESSION['User'] );
-        $stmtU->execute();
-        $post->setIdUsuario($stmtU);
-
+        
+        // echo "<pre>";
+        // var_dump($postagem);
+        // echo "</pre>";
+        
+        
         //Postagem
 
-        $stmt = $conexao->prepare(" INSERT INTO tbPost (FK_idUsuario, descPost, tituloPost, notaPost, generoPost, caminhoImagem, nomeImagem)
-                                    VALUES (?, ?, ?, ?, ?) ");
+        $stmt = $conexao->prepare(" INSERT INTO tbPost (idUsuario, descPost, tituloPost, generoPost, caminhoImagem, nomeImagem)
+                                    VALUES (?, ?, ?, ?, ?, ?) ");
 
-        $stmt->bindValue(1, $post->getIdUsuario());
-        $stmt->bindValue(2, $post->getDescPost());
-        $stmt->bindValue(3, $post->getTituloPost());
-        $stmt->bindValue(4, $post->getNotaPost());
-        $stmt->bindValue(5, $post->getGeneroPost());
-        $stmt->bindValue(6, $post->getCaminhoImagem());
-        $stmt->bindValue(7, $post->getNomeImagem());
+        $stmt->bindValue(1, $postagem->getIdUsuario());
+        $stmt->bindValue(2, $postagem->getDescPost());
+        $stmt->bindValue(3, $postagem->getTituloPost());
+        $stmt->bindValue(4, $postagem->getGeneroPost());
+        $stmt->bindValue(5, $postagem->getCaminhoImagem());
+        $stmt->bindValue(6, $postagem->getNomeImagem());
         $stmt->execute();
 
         header("Location: home.php");
-
+       
 
     }
 
     public function listar(){
         $conexao = Conexao::pegarConexao();
-        $querySelect = "SELECT nomeUsuario, descPost, tituloPost, notaPost, generoPost, caminhoImagem FROM tbPost
+        $querySelect = "SELECT nomeUsuario, descPost, tituloPost, generoPost, caminhoImagem FROM tbPost
                          INNER JOIN tbUsuario ON tbPost.idUsuario = tbUsuario.idUsuario";
         $resultado = $conexao->query($querySelect);
         $listaPost = $resultado->fetchAll();

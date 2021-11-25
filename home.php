@@ -11,6 +11,25 @@
 </head>
 
 <body>
+    <?php
+        require_once 'global.php';
+
+        try{
+            $Postagem = new Postagem();
+
+            $ListaPost = $Postagem->listar();
+          }
+          catch(exception $e){
+            echo '<pre>';
+                print_r($e);
+            echo '</pre>';
+    
+            echo $e->getMessage();
+          }
+
+    ?>
+
+
     <div class="allSite">
         <header>
             <a href="" class="logo"><img src="./img/logoMeetboo.png" alt=""></a>
@@ -26,10 +45,56 @@
             </ul>
         </header>
         <section class="feed">
-            <div class="containerTwo" style="float: right; margin-left: 70%;">
+            <div class="containerTwo">
                 <img src="img/coluna.png" style="width: 220px;">
             </div>
-            <div class="container" style="float: left; margin-left: 5%; margin-bottom: 50px;">
+            <div class="container">
+                <div class="usuario">
+                    <div class="img-container">
+                        <img src="./img/usuario.png" alt="">
+                    </div>
+                    <ul>
+                        <li><h1><?php echo $_SESSION['User'] ?></h1></li>
+                    </ul>
+                </div>
+                <form class="formPost" action="postar-review.php" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="ftFile" id="livroInput">
+                    <input type="text" name="txtGenero" class="input" id="generoInput" maxlength="30" placeholder="Qual o genero do livro? Ex: #Terror">
+                    <br>
+                    <input type="text" name="txtTitulo" class="input" id="tituloInput" maxlength="85" placeholder="Dê um titulo a sua review">
+                    <textarea name="txtReview" class="input" id="reviewInput" maxlength="450" placeholder="Escreva sua review aqui"></textarea>
+                    <input type="submit" class="input" id="enviarPost" value="Postar">
+                </form>   
+            </div>
+            <?php foreach ($ListaPost as $linha){   ?>
+                <div class="container">
+                    <div class="usuario">
+                        <div class="img-container">
+                            <img src="./img/usuario.png" alt="">
+                        </div>
+                        <ul>
+                            <li><h1><?php echo $linha['nomeUsuario']?></h1></li>
+                            <li><h2><?php echo $linha['generoPost'] ?></h2></li>
+                        </ul>
+                    </div>
+                    <div class="post">
+                        <h1><?php echo $linha['tituloPost']   ?></h1>
+                        <div class="info">
+                            <div class="img-container">
+                                <img src="<?php echo $linha['caminhoImagem']  ?>" alt="">
+                            </div>
+                            <div class="text-container">
+                                <p> <?php echo $linha['descPost'] ?></p>
+                            </div>
+                        </div>
+                        <ul>
+                            <li><img src="./img/love.png" alt=""></li>
+                            <li><img src="./img/bubble-chat.png" alt=""></li>
+                        </ul>
+                    </div>
+                </div>
+            <?php } ?>
+            <div class="container">
                 <div class="usuario">
                     <div class="img-container">
                         <img src="./img/Usuario1.jpg" alt="">
@@ -60,7 +125,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="container" style="float: left; margin-left: 5%; margin-bottom: 50px;">
+            <div class="container">
                 <div class="usuario">
                     <div class="img-container">
                         <img src="./img/Usuario2.jpg.opdownload" alt="">
@@ -96,7 +161,7 @@
                 </div>
             </div>
 
-            <div class="container" style="float: left; margin-left: 5%; margin-bottom: 50px;">
+            <div class="container">
                 <div class="usuario">
                     <div class="img-container">
                         <img src="./img/Usuario3.jpg" alt="">
