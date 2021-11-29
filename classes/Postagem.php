@@ -100,7 +100,8 @@ class Postagem{
     public function listar(){
         $conexao = Conexao::pegarConexao();
         $querySelect = "SELECT nomeUsuario, descPost, tituloPost, generoPost, caminhoImagem FROM tbPost
-                         INNER JOIN tbUsuario ON tbPost.idUsuario = tbUsuario.idUsuario";
+                        INNER JOIN tbUsuario ON tbPost.idUsuario = tbUsuario.idUsuario
+                        ORDER BY tbPost.idUsuario DESC";
         $resultado = $conexao->query($querySelect);
         $listaPost = $resultado->fetchAll();
         return $listaPost;
